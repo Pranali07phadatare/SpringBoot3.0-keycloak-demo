@@ -1,0 +1,19 @@
+#spring.application.name=keycloak
+
+Spring:
+  security:
+    oauth2:
+      resourceServer:
+        jwt:
+          issuer-uri: http://localhost:8090/realms/keycloakDemo1
+          jwk-set-uri: ${Spring.security.oauth2.resourceServer.jwt.issuer-uri}/protocol/openid-connect/certs
+  application:
+    name: keycloak
+server:
+  port: 8080
+
+jwt:
+  auth:
+    converter:
+      resource-id: demo2
+      principle-attribute: preferred_username
